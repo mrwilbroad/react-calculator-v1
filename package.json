@@ -1,5 +1,5 @@
 {
-  "name": "react-calculator-v1",
+  "name": "@mrwilbroad/react-calculator-v1",
   "version": "0.0.1",
   "description": "Calcutor designed with react + typescript",
   "main": "dist/cjs/index.js",
@@ -37,5 +37,8 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "rollup-plugin-dts": "^6.1.0",
     "tslib": "^2.6.2"
+  },
+  "publishConfig": {
+    "@mrwilbroad:registry": "https://npm.pkg.github.com"
   }
 }
