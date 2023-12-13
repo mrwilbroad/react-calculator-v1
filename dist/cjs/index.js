@@ -2802,7 +2802,7 @@ var reactExports = react.exports;
 var React = /*@__PURE__*/getDefaultExportFromCjs(reactExports);
 
 const Button = (props) => {
-    return React.createElement("button", null, props.label);
+    return React.createElement("button", Object.assign({}, props), props.children);
 };
 
 exports.Button = Button;

@@ -1,6 +1,6 @@
 {
-  "name": "@mrwilbroad/react-calculator-v1",
-  "version": "0.0.1",
+  "name": "react-calculator-v1",
+  "version": "0.1.0",
   "description": "Calcutor designed with react + typescript",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -9,7 +9,7 @@
     "dist"
   ],
   "scripts": {
-    "rollup": "rollup --config"
+    "build": "rollup --config --watch"
   },
   "repository": {
     "type": "git",

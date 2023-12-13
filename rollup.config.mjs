@@ -2,6 +2,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 import commonjs from "@rollup/plugin-commonjs";
 import dts from "rollup-plugin-dts";
+import pkg from "./package.json" assert{ type: 'json'};
 
 // rollup.config.js (building more than one bundle)
 export default [
@@ -9,12 +10,12 @@ export default [
     input: "src/index.ts",
     output: [
       {
-        file: "dist/cjs/index.js",
+        file: pkg.main,
         format: "cjs",
         sourcemap: true,
       },
       {
-        file: "dist/esm/index.js",
+        file: pkg.module,
         format: "esm",
         sourcemap: true,
       },
