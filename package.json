@@ -9,7 +9,7 @@
     "dist"
   ],
   "scripts": {
-    "rollup": "rollup -c"
+    "rollup": "rollup --config"
   },
   "repository": {
     "type": "git",
@@ -37,8 +37,5 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "rollup-plugin-dts": "^6.1.0",
     "tslib": "^2.6.2"
-  },
-  "publishConfig": {
-    "@mrwilbroad:registry": "https://npm.pkg.github.com"
   }
 }
