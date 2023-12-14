@@ -11,7 +11,7 @@ interface inputProps {
 }
 
 const Calculator = (props: Calculatorprops) => {
-  const [result, setResult] = React.useState<string>("No result to display");
+  const [result, setResult] = React.useState("No result to display");
   const [value, setValue] = React.useState<inputProps>({
     fn: 0,
     sn: 0,
