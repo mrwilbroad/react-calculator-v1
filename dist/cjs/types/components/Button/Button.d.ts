@@ -3,5 +3,5 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     label?: string;
     children: React.ReactNode;
 }
-declare const Button: (props: ButtonProps) => React.JSX.Element;
+declare const Button: (props: ButtonProps) => import("react/jsx-runtime").JSX.Element;
 export default Button;

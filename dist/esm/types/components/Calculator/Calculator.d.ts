@@ -3,5 +3,5 @@ interface Calculatorprops {
     title?: string;
     children?: React.ReactNode;
 }
-declare const Calculator: (props: Calculatorprops) => React.JSX.Element;
+declare const Calculator: (props: Calculatorprops) => import("react/jsx-runtime").JSX.Element;
 export default Calculator;
