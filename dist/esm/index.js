@@ -2803,5 +2803,35 @@ const Button = (props) => {
     return React.createElement("button", Object.assign({}, props), props.children);
 };
 
-export { Button };
+const Calculator = (props) => {
+    const [result, setResult] = React.useState();
+    const [value, setValue] = React.useState({
+        fn: 0,
+        sn: 0,
+    });
+    const getResult = () => {
+        if (value.fn === 0 || value.sn === 0) {
+            setResult("Cant make any calculation since values are empty!");
+        }
+        else {
+            setResult(`output is ${value.fn + value.sn}`);
+        }
+    };
+    return (React.createElement("section", null,
+        props.title && React.createElement("h1", null,
+            " ",
+            props.title),
+        React.createElement("section", { className: "mt-3 p-3" },
+            result && React.createElement("span", null,
+                "Result is : ",
+                result),
+            React.createElement("section", { className: "vstack gap-3" },
+                React.createElement("input", { type: "text", className: "form-control col-3", name: "fn", onChange: (e) => setValue(Object.assign(Object.assign({}, value), { fn: parseFloat(e.target.value) })), value: value.fn }),
+                React.createElement("input", { type: "text", className: "form-control col-3", name: "sn", value: value.sn, onChange: (e) => setValue(Object.assign(Object.assign({}, value), { sn: parseFloat(e.target.value) })) }),
+                React.createElement("button", { type: "button", className: "btn btn-outline-dark", onClick: getResult },
+                    "Get result",
+                    " ")))));
+};
+
+export { Button, Calculator };
 //# sourceMappingURL=index.js.map
