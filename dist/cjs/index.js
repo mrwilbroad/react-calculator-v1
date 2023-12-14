@@ -2806,7 +2806,7 @@ const Button = (props) => {
 };
 
 const Calculator = (props) => {
-    const [result, setResult] = React.useState("");
+    const [result, setResult] = React.useState("No result to display");
     const [value, setValue] = React.useState({
         fn: 0,
         sn: 0,
@@ -2832,7 +2832,8 @@ const Calculator = (props) => {
                 React.createElement("input", { type: "text", className: "form-control col-3", name: "sn", value: value.sn, onChange: (e) => setValue(Object.assign(Object.assign({}, value), { sn: parseFloat(e.target.value) })) }),
                 React.createElement("button", { type: "button", className: "btn btn-outline-dark", onClick: getResult },
                     "Get result",
-                    " ")))));
+                    " "))),
+        props.children));
 };
 
 exports.Button = Button;

@@ -1,6 +1,7 @@
 import React from "react";
 interface Calculatorprops {
-    title?: String;
+    title?: string;
+    children?: React.ReactNode;
 }
 declare const Calculator: (props: Calculatorprops) => React.JSX.Element;
 export default Calculator;

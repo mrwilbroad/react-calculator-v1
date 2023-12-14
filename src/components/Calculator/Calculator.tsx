@@ -1,12 +1,18 @@
 import React from "react";
 
 interface Calculatorprops {
-  title?: String;
+  title?: string;
+  children?: React.ReactNode;
+}
+
+interface inputProps {
+  fn: number;
+  sn: number;
 }
 
 const Calculator = (props: Calculatorprops) => {
-  const [result, setResult] = React.useState<String | null | undefined>("");
-  const [value, setValue] = React.useState({
+  const [result, setResult] = React.useState<string>("No result to display");
+  const [value, setValue] = React.useState<inputProps>({
     fn: 0,
     sn: 0,
   });
@@ -53,11 +59,17 @@ const Calculator = (props: Calculatorprops) => {
             }
           />
 
-          <button type="button" className="btn btn-outline-dark" onClick={getResult}>
+          <button
+            type="button"
+            className="btn btn-outline-dark"
+            onClick={getResult}
+          >
             Get result{" "}
           </button>
         </section>
       </section>
+
+      {props.children}
     </section>
   );
 };
