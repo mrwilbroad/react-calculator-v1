@@ -1,4 +1,4 @@
 import Button from "./Button/Button";
-import Calculator from "./Calculator/CalculatorV";
+import Calculator from "./Calculator/Calculator";
 
 export { Button, Calculator };

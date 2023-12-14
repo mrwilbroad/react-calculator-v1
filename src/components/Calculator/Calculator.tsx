@@ -10,7 +10,7 @@ interface inputProps {
   sn: number;
 }
 
-const CalculatorV = (props: Calculatorprops) => {
+const Calculator = (props: Calculatorprops) => {
 
 
   const [result, setResult] = React.useState("No result to display for now");
@@ -75,4 +75,4 @@ const CalculatorV = (props: Calculatorprops) => {
   );
 };
 
-export default CalculatorV;
+export default Calculator;
