@@ -2806,7 +2806,7 @@ const Button = (props) => {
 };
 
 const Calculator = (props) => {
-    const [result, setResult] = React.useState();
+    const [result, setResult] = React.useState("");
     const [value, setValue] = React.useState({
         fn: 0,
         sn: 0,

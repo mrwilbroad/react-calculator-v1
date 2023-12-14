@@ -5,7 +5,7 @@ interface Calculatorprops {
 }
 
 const Calculator = (props: Calculatorprops) => {
-  const [result, setResult] = React.useState<String | null>();
+  const [result, setResult] = React.useState<String | null | undefined>("");
   const [value, setValue] = React.useState({
     fn: 0,
     sn: 0,
