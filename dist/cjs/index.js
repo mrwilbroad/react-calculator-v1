@@ -1,5 +1,9 @@
 'use strict';
 
+function getDefaultExportFromCjs (x) {
+	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+}
+
 var jsxRuntime = {exports: {}};
 
 var reactJsxRuntime_development = {};
@@ -2792,19 +2796,14 @@ var l=Symbol.for("react.element"),n=Symbol.for("react.portal"),p=Symbol.for("rea
 	return react_production_min;
 }
 
-var hasRequiredReact;
-
-function requireReact () {
-	if (hasRequiredReact) return react.exports;
-	hasRequiredReact = 1;
-
-	if (process.env.NODE_ENV === 'production') {
-	  react.exports = requireReact_production_min();
-	} else {
-	  react.exports = requireReact_development();
-	}
-	return react.exports;
+if (process.env.NODE_ENV === 'production') {
+  react.exports = requireReact_production_min();
+} else {
+  react.exports = requireReact_development();
 }
+
+var reactExports = react.exports;
+var React = /*@__PURE__*/getDefaultExportFromCjs(reactExports);
 
 /**
  * @license React
@@ -2825,7 +2824,7 @@ function requireReactJsxRuntime_development () {
 	if (process.env.NODE_ENV !== "production") {
 	  (function() {
 
-	var React = requireReact();
+	var React = reactExports;
 
 	// ATTENTION
 	// When adding new symbols to this file,
@@ -4143,7 +4142,7 @@ var hasRequiredReactJsxRuntime_production_min;
 function requireReactJsxRuntime_production_min () {
 	if (hasRequiredReactJsxRuntime_production_min) return reactJsxRuntime_production_min;
 	hasRequiredReactJsxRuntime_production_min = 1;
-var f=requireReact(),k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:!0,ref:!0,__self:!0,__source:!0};
+var f=reactExports,k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:!0,ref:!0,__self:!0,__source:!0};
 	function q(c,a,g){var b,d={},e=null,h=null;void 0!==g&&(e=""+g);void 0!==a.key&&(e=""+a.key);void 0!==a.ref&&(h=a.ref);for(b in a)m.call(a,b)&&!p.hasOwnProperty(b)&&(d[b]=a[b]);if(c&&c.defaultProps)for(b in a=c.defaultProps,a)void 0===d[b]&&(d[b]=a[b]);return {$$typeof:k,type:c,key:e,ref:h,props:d,_owner:n.current}}reactJsxRuntime_production_min.Fragment=l;reactJsxRuntime_production_min.jsx=q;reactJsxRuntime_production_min.jsxs=q;
 	return reactJsxRuntime_production_min;
 }
@@ -4161,19 +4160,20 @@ const Button = (props) => {
 };
 
 const Calculator = (props) => {
-    // const [result, setResult] = React.useState("No result to display for now");
-    // const [value, setValue] = React.useState<inputProps>({
-    //   fn: 0,
-    //   sn: 0,
-    // });
-    // const getResult = (): void => {
-    //   if (value.fn === 0 || value.sn === 0) {
-    //     setResult("Cant make any calculation since values are empty!");
-    //   } else {
-    //     setResult(`output is ${value.fn + value.sn}`);
-    //   }
-    // };
-    return (jsxRuntimeExports.jsxs("section", { children: [props.title && jsxRuntimeExports.jsxs("h1", { children: [" ", props.title] }), jsxRuntimeExports.jsx("section", { className: "mt-3 p-3", children: jsxRuntimeExports.jsxs("section", { className: "vstack gap-3", children: [jsxRuntimeExports.jsx("input", { type: "text", className: "form-control col-3", name: "fn" }), jsxRuntimeExports.jsx("input", { type: "text", className: "form-control col-3", name: "sn" }), jsxRuntimeExports.jsxs("button", { type: "button", className: "btn btn-outline-dark", children: ["Get result", " "] })] }) })] }));
+    const [result, setResult] = React.useState("No result to display for now");
+    const [value, setValue] = React.useState({
+        fn: 0,
+        sn: 0,
+    });
+    const getResult = () => {
+        if (value.fn === 0 || value.sn === 0) {
+            setResult("Cant make any calculation since values are empty!");
+        }
+        else {
+            setResult(`output is ${value.fn + value.sn}`);
+        }
+    };
+    return (jsxRuntimeExports.jsxs("section", { children: [props.title && jsxRuntimeExports.jsxs("h1", { children: [" ", props.title] }), jsxRuntimeExports.jsxs("section", { className: "mt-3 p-3", children: [result && jsxRuntimeExports.jsxs("span", { children: ["Result is : ", result] }), jsxRuntimeExports.jsxs("section", { className: "vstack gap-3", children: [jsxRuntimeExports.jsx("input", { type: "text", onChange: (e) => setValue(Object.assign(Object.assign({}, value), { [e.target.name]: e.target.value })), value: value.fn, className: "form-control col-3", name: "fn" }), jsxRuntimeExports.jsx("input", { type: "text", onChange: (e) => setValue(Object.assign(Object.assign({}, value), { [e.target.name]: e.target.value })), value: value.sn, className: "form-control col-3", name: "sn" }), jsxRuntimeExports.jsxs("button", { onClick: getResult, type: "button", className: "btn btn-outline-dark", children: ["Get result", " "] })] })] })] }));
 };
 
 exports.Button = Button;
