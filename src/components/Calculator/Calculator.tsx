@@ -19,7 +19,7 @@ const Calculator = (props: Calculatorprops) => {
 
   const getResult = (): void => {
     if (value.fn === 0 || value.sn === 0) {
-      setResult("Cant make any calculation since values are empty!");
+      setResult("Cant make  calculation since values are empty!");
     } else {
       setResult(`output is ${value.fn + value.sn}`);
     }
