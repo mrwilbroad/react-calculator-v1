@@ -32,13 +32,11 @@
     "@rollup/plugin-typescript": "^11.1.5",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "rollup-plugin-dts": "^6.1.0"
-  },
-  "dependencies": {
+    "rollup-plugin-dts": "^6.1.0",
+    "@types/react": "^18.2.45",
     "tslib": "^2.6.2"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "@types/react": "^18.2.45"
+    "react": "^18.2.0"
   }
 }
